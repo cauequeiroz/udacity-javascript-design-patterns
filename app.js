@@ -46,6 +46,14 @@ var generateList = function() {
 };
 
 var selectCat = function() {
+	if ( this.classList.contains('selected') ) return;
+
+	if ( document.querySelector('.cat-list .selected') ) {
+		document.querySelector('.cat-list .selected').classList.remove('selected');
+	}
+	this.classList.add('selected');
+	console.log('change..');
+
 	var html = '',
 		ref  = this.getAttribute('data-ref'),
 		$ctn = document.querySelector('.cat-view');
