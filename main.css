@@ -44,22 +44,46 @@ h2 {
   ----------------------------------------
 */
 .cat-view {
-	padding: 20px 0;
-}
-.cat {
-	width: 400px;
-	float: left;
+	width: 600px;
 	text-align: center;
 	padding: 0 20px;
+	float: right;
+	margin-top: 25px;
 }
-.cat p {
+.cat-view p {
 	width: 100%;
 	border: 1px solid #bdc3c7;
 	border-radius: 4px;
 	padding: 10px 0;
 	margin-bottom: 10px;
 }
-.cat img {
+.cat-view img {
 	width: 100%;
-	margin-bottom: 40px;
+}
+
+/*
+  ----------------------------------------
+  Cat List
+  ----------------------------------------
+*/
+.cat-list {
+	width: 180px;
+	float: left;
+	margin-top: 25px;
+}
+.cat-list ul {
+	list-style: none;
+}
+.cat-list ul li {
+	width: 100%;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 4px;
+}
+.cat-list ul li.selected,
+.cat-list ul li:hover {
+	background: #7f8c8d;
+	color: #ecf0f1;
+	cursor: pointer;
+	font-weight: 400;
 }
