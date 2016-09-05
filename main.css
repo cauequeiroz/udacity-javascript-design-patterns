@@ -45,6 +45,21 @@ h2 {
 */
 .cat-view {
 	padding: 20px 0;
-	text-align: center;
 }
-
+.cat {
+	width: 400px;
+	float: left;
+	text-align: center;
+	padding: 0 20px;
+}
+.cat p {
+	width: 100%;
+	border: 1px solid #bdc3c7;
+	border-radius: 4px;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.cat img {
+	width: 100%;
+	margin-bottom: 40px;
+}
