@@ -1,0 +1,50 @@
+/*
+  ----------------------------------------
+  Reset & Basic styles
+  ----------------------------------------
+*/
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background: #ecf0f1;
+	font: 16px 'Open Sans', Arial, sans-serif;
+	font-weight: 300;
+}
+.container {
+	width: 800px;
+	margin: 0 auto;
+}
+
+/*
+  ----------------------------------------
+  Header
+  ----------------------------------------
+*/
+.main-header {
+	padding: 20px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+h1,
+h2 {
+	font-weight: 300;
+}
+h2 {
+	font-size: 16px;
+}
+
+/*
+  ----------------------------------------
+  Cat View
+  ----------------------------------------
+*/
+.cat-view {
+	padding: 20px 0;
+	text-align: center;
+}
+
