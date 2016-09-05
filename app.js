@@ -1,4 +1,3 @@
-// Cat Storage
 var cats = [
 	{
 		name: 'Pixel',
@@ -31,28 +30,37 @@ var cats = [
 	}
 ];
 
-// // Print cats on html
-// var printCats = function() {
-// 	for ( var i in cats ) {
-// 		var html = '',
-// 			$ctn = document.createElement('div');
-// 			$ctn.setAttribute('class', 'cat');
+var generateList = function() {
+	var $ul  = document.createElement('ul');		
+	
+	for ( var i in cats ) {
+		var $li = document.createElement('li');
+			$li.innerHTML = cats[i].name;
+			$li.setAttribute('data-ref', i);
 
-// 		html = '<p>'+cats[i].name+': <span>'+cats[i].count+'</span></p><img src="'+cats[i].image+'" data-ref="'+i+'">';
-// 		$ctn.innerHTML = html;
+		$li.addEventListener('click', selectCat, false);
+		$ul.appendChild($li);
+	}
 
-// 		$ctn.querySelector('img').addEventListener('click', addCount, false);
+	document.querySelector('.cat-list').appendChild($ul);
+};
 
-// 		document.querySelector('.cat-view').appendChild($ctn);
-// 	}	
-// }
+var selectCat = function() {
+	var html = '',
+		ref  = this.getAttribute('data-ref'),
+		$ctn = document.querySelector('.cat-view');
 
-// // Increment count when clicked
-// var addCount = function() {
-// 	var $count = this.parentNode.querySelector('p span');
-// 	$count.innerHTML = ++cats[this.getAttribute('data-ref')].count;
-// };
+	html = '<p>'+cats[ref].name+': <span>'+cats[ref].count+'</span></p><img src="'+cats[ref].image+'" data-ref="'+ref+'">';
+	$ctn.innerHTML = html;
 
-// printCats();
+	$ctn.querySelector('img').addEventListener('click', addCount, false);
+};
+
+var addCount = function() {
+	var $count = this.parentNode.querySelector('p span');
+	$count.innerHTML = ++cats[this.getAttribute('data-ref')].count;
+};
+
+generateList();
 
 
