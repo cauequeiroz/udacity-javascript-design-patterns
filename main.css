@@ -29,6 +29,7 @@ body {
 	padding: 20px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	text-align: center;
+	margin-bottom: 25px;
 }
 h1,
 h2 {
@@ -47,7 +48,6 @@ h2 {
 	width: 600px;
 	text-align: center;
 	float: right;
-	margin-top: 25px;
 }
 .cat-view p {
 	width: 100%;
@@ -68,7 +68,6 @@ h2 {
 .cat-list {
 	width: 180px;
 	float: left;
-	margin-top: 25px;
 }
 .cat-list ul {
 	list-style: none;
@@ -85,4 +84,44 @@ h2 {
 	color: #ecf0f1;
 	cursor: pointer;
 	font-weight: 400;
+}
+
+/*
+  ----------------------------------------
+  Admin
+  ----------------------------------------
+*/
+.btn {
+	width: 100px;
+	padding: 11px;
+	border-radius: 4px;
+	margin-bottom: 12px;
+	background: #2c3e50;
+	color: #ecf0f1;
+	cursor: pointer;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+}
+.btn:hover {
+	background: #34495e;
+}
+.btn-large {
+	width: 100%;
+}
+
+.admin-form {
+	float: right;
+	width: 600px;
+	display: none;
+}
+.admin-form input {
+	padding: 11px;
+	width: 180px;
+	border: none;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+.show {
+	display: block;
 }

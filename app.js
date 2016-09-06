@@ -1,4 +1,6 @@
 var model = {
+	currentCat: null,
+
 	cats: [
 		{
 			name: 'Pixel',
@@ -37,13 +39,25 @@ var model = {
 
 	addCount: function(cat) {
 		this.cats[cat].count++;
+	},
+
+	addCat: function(name, url) {
+		this.cats.push({
+			name: name,
+			image: url,
+			count: 0
+		});
 	}
 }
 
 var octopus = {
 	init: function() {
+		model.currentCat = 0;
 		view.renderList();
-		document.querySelectorAll('.cat-list li')[0].click();
+
+		document.querySelector('.admin').addEventListener('click', octopus.openAdmin, false);
+		document.querySelector('.cancel').addEventListener('click', octopus.closeAdmin, false);
+		document.querySelector('.save').addEventListener('click', octopus.addCat, false);
 	},
 
 	getCats: function() {
@@ -61,22 +75,49 @@ var octopus = {
 		}
 		this.classList.add('selected');
 
-		view.renderCat(cat);
+		model.currentCat = cat;
+		view.renderCat(model.currentCat);
 	},
 
 	addCount: function() {
 		var cat = this.getAttribute('data-ref');
 		model.addCount(cat);
 		view.renderCat(cat);
+	},
+
+	openAdmin: function() {
+		if ( this.classList.contains('opened') ) return;
+
+		this.classList.add('opened');
+		document.querySelector('.cat-name').value = '';
+		document.querySelector('.cat-url').value = '';
+		document.querySelector('.admin-form').classList.add('show');
+	},
+
+	closeAdmin: function() {
+		document.querySelector('.admin-form').classList.remove('show');
+		document.querySelector('.admin').classList.remove('opened');
+	},
+
+	addCat: function() {
+		var name  = document.querySelector('.cat-name').value,
+			image = document.querySelector('.cat-url').value;
+
+		if ( name !== '' && image !== '' ) {
+			model.addCat(name, image);
+			view.renderList();
+			octopus.closeAdmin();
+		}
 	}
 }
 
 
 var view = {
 	renderList: function() {
-		var $ul  = document.createElement('ul'),
+		var $ul  = document.querySelector('.cat-list ul'),
 			cats = octopus.getCats();		
-	
+		
+		$ul.innerHTML = '';
 		for ( var i in cats ) {
 			var $li = document.createElement('li');
 				$li.innerHTML = cats[i].name;
@@ -86,7 +127,7 @@ var view = {
 			$ul.appendChild($li);
 		}
 
-		document.querySelector('.cat-list').appendChild($ul);
+		document.querySelectorAll('.cat-list li')[model.currentCat].click();
 	},
 
 	renderCat: function(cat) {
