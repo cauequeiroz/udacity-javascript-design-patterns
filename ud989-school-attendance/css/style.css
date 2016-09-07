@@ -1,0 +1,50 @@
+/*
+  ----------------------------------------
+  Reset & Basic styles
+  ----------------------------------------
+*/
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 16px 'Open Sans', Arial, sans-serif;
+	background: #3498db;
+	color: #ecf0f1;
+}
+
+h1 {
+	font-weight: 400;
+	margin: 25px;
+}
+
+/*
+  ----------------------------------------
+  Table
+  ----------------------------------------
+*/
+.book {
+	margin: 25px;
+}
+
+table th {
+	text-align: left;
+	font-weight: 400;
+}
+table tr {
+	height: 30px;
+}
+table thead tr {
+	height: 50px;
+}
+table td {
+	font-weight: 300;
+	min-width: 50px;
+}
+table td:first-child {
+	width: 150px;
+}
