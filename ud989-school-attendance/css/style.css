@@ -48,3 +48,7 @@ table td {
 table td:first-child {
 	width: 150px;
 }
+
+.frequency input {
+	margin-right: 30px;
+}
